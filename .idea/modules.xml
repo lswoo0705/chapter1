@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/chapter1.iml" filepath="$PROJECT_DIR$/.idea/chapter1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.spartamsa_exam.product.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.spartamsa_exam.product.main.iml" />
     </modules>
   </component>
 </project>
