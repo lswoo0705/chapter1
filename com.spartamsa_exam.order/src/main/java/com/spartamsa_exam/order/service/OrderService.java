@@ -9,10 +9,6 @@ import org.springframework.stereotype.Service;
 public class OrderService {
     private final ProductClient productClient;
 
-    public String getProductInfo(String productId) {
-        return productClient.getProduct(productId);
-    }
-
     // 주문 단건 조회
     public String getOrder(String orderId) {
         return null;
