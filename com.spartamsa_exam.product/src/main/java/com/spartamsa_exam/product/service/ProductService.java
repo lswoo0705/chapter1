@@ -18,7 +18,7 @@ public class ProductService {
     public String createProduct(ProductRequestDto productRequestDto, String serverPort) {
         Product product = new Product(productRequestDto.getName(), productRequestDto.getSupplyPrice());
         productRepository.save(product);
-        return null;
+        return "Create Product Success, Port : " + serverPort;
     }
 
     // 상품 목록 조회
@@ -26,7 +26,7 @@ public class ProductService {
         List<Product> products = productRepository.findAll();
 
         List<ProductResponseDto> productList = products.stream()
-                .map(product -> new ProductResponseDto(product.getId(), product.getName(), product.getSupplyPrice()))
+                .map(product -> new ProductResponseDto(product.getId(), product.getName(), product.getSupplyPrice(), "Get Products Success, Port : " + serverPort))
                 .toList();
 
         return productList;
