@@ -15,18 +15,18 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     // 상품 추가
-    public String createProduct(ProductRequestDto productRequestDto, String serverPort) {
+    public String createProduct(ProductRequestDto productRequestDto) {
         Product product = new Product(productRequestDto.getName(), productRequestDto.getSupplyPrice());
         productRepository.save(product);
-        return "Create Product Success, Port : " + serverPort;
+        return "Create Product Success";
     }
 
     // 상품 목록 조회
-    public List<ProductResponseDto> getProducts(String serverPort) {
+    public List<ProductResponseDto> getProducts() {
         List<Product> products = productRepository.findAll();
 
         List<ProductResponseDto> productList = products.stream()
-                .map(product -> new ProductResponseDto(product.getId(), product.getName(), product.getSupplyPrice(), "Get Products Success, Port : " + serverPort))
+                .map(product -> new ProductResponseDto(product.getId(), product.getName(), product.getSupplyPrice()))
                 .toList();
 
         return productList;

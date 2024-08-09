@@ -5,6 +5,9 @@ import com.spartamsa_exam.product.dto.ProductResponseDto;
 import com.spartamsa_exam.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,15 +23,25 @@ public class ProductController {
     @Value("${server.port}")
     private String serverPort;
 
-    // 상품 추가S
+    // 상품 추가
     @PostMapping("/products")
-    public String createProduct(@RequestBody ProductRequestDto productRequestDto) {
-        return productService.createProduct(productRequestDto, serverPort);
+    public ResponseEntity<String> createProduct(@RequestBody ProductRequestDto productRequestDto) {
+        String responseMessage = productService.createProduct(productRequestDto);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Server-Port", serverPort);
+
+        return new ResponseEntity<>(responseMessage, headers, HttpStatus.CREATED);
     }
 
     // 상품 목록 조회
     @GetMapping("/products")
-    public List<ProductResponseDto> getProducts() {
-        return productService.getProducts(serverPort);
+    public ResponseEntity<List<ProductResponseDto>> getProducts() {
+        List<ProductResponseDto> products = productService.getProducts();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Server-Port", serverPort);
+
+        return new ResponseEntity<>(products, headers, HttpStatus.OK);
     }
 }
