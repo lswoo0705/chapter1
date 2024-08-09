@@ -1,5 +1,6 @@
 package com.spartamsa_exam.order.controller;
 
+import com.spartamsa_exam.order.dto.AddProductToOrderRequestDto;
 import com.spartamsa_exam.order.dto.OrderRequestDto;
 import com.spartamsa_exam.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,12 @@ public class OrderController {
     @PostMapping("/order")
     public String createOrder(@RequestBody OrderRequestDto orderRequestDto) {
         return orderService.createOrder(orderRequestDto);
+    }
+
+    // 주문에 상품 추가하기
+    @PutMapping("/order/{orderId}")
+    public String addProductToOrder(@PathVariable Long orderId, @RequestBody AddProductToOrderRequestDto addProductToOrderRequestDto) {
+        return orderService.addProductToOrder(orderId, addProductToOrderRequestDto);
     }
 
     // 주문 단건 조회

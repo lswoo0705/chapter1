@@ -31,4 +31,9 @@ public class ProductService {
 
         return productList;
     }
+
+    // productRepository에 상품이 존재하는지 확인
+    public boolean isProductExists(Long productId) {
+        return productRepository.existsById(productId);
+    }
 }

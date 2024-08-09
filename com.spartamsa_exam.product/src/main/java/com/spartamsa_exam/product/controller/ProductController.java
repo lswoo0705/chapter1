@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -43,5 +40,11 @@ public class ProductController {
         headers.add("Server-Port", serverPort);
 
         return new ResponseEntity<>(products, headers, HttpStatus.OK);
+    }
+
+    // productRepository에 상품이 존재하는지 확인
+    @GetMapping("products/{productId}")
+    public boolean isProductExists(@PathVariable Long productId) {
+        return productService.isProductExists(productId);
     }
 }

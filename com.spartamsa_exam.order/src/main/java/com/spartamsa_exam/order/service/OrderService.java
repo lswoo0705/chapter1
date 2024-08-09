@@ -1,6 +1,7 @@
 package com.spartamsa_exam.order.service;
 
 import com.spartamsa_exam.order.client.ProductClient;
+import com.spartamsa_exam.order.dto.AddProductToOrderRequestDto;
 import com.spartamsa_exam.order.dto.OrderRequestDto;
 import com.spartamsa_exam.order.entity.Order;
 import com.spartamsa_exam.order.entity.OrderProduct;
@@ -26,6 +27,22 @@ public class OrderService {
         orderRepository.save(order);
 
         return "Create Order Success";
+    }
+
+    // 주문에 상품 추가하기
+    public String addProductToOrder(Long orderId, AddProductToOrderRequestDto addProductToOrderRequestDto) {
+        Order order = orderRepository.findById(orderId).orElseThrow(
+                () -> new IllegalArgumentException("해당 주문은 존재하지 않습니다."));
+
+        if (!productClient.isProductExists(addProductToOrderRequestDto.getProductId())) {
+            throw new IllegalArgumentException("해당 상품은 존재하지 않습니다.");
+        }
+
+        order.addOrderProduct(new OrderProduct(addProductToOrderRequestDto.getProductId()));
+
+        orderRepository.save(order);
+
+        return "Add Product To Order";
     }
 
     // 주문 단건 조회
