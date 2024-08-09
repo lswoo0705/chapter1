@@ -3,6 +3,7 @@ package com.spartamsa_exam.order.service;
 import com.spartamsa_exam.order.client.ProductClient;
 import com.spartamsa_exam.order.dto.AddProductToOrderRequestDto;
 import com.spartamsa_exam.order.dto.OrderRequestDto;
+import com.spartamsa_exam.order.dto.OrderResponseDto;
 import com.spartamsa_exam.order.entity.Order;
 import com.spartamsa_exam.order.entity.OrderProduct;
 import com.spartamsa_exam.order.repository.OrderRepository;
@@ -46,7 +47,11 @@ public class OrderService {
     }
 
     // 주문 단건 조회
-    public String getOrder(String orderId) {
-        return null;
+    public OrderResponseDto getOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(
+                () -> new IllegalArgumentException("해당 주문은 존재하지 않습니다.")
+        );
+
+        return new OrderResponseDto(order.getOrderId(), order.getProductIds());
     }
 }

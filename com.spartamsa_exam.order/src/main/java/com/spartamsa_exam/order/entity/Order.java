@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Entity
@@ -19,6 +20,12 @@ public class Order {
     private String name;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderProduct> orderProductIds = new ArrayList<>();
+
+    public List<Long> getProductIds() {
+        return orderProductIds.stream()
+                .map(OrderProduct::getProductId)
+                .collect(Collectors.toList());
+    }
 
     public Order(String name) {
         this.name = name;
