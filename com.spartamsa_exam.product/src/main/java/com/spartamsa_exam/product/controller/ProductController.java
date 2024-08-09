@@ -17,10 +17,10 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
     // 서버 포트
-    @Value("$server.port")
+    @Value("${server.port}")
     private String serverPort;
 
-    // 상품 추가
+    // 상품 추가S
     @PostMapping("/products")
     public String createProduct(@RequestBody ProductRequestDto productRequestDto) {
         return productService.createProduct(productRequestDto, serverPort);
