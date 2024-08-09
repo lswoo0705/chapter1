@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/chapter1.iml" filepath="$PROJECT_DIR$/.idea/chapter1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.spartamsa_exam.gateway.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.spartamsa_exam.gateway.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.spartamsa_exam.order.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.spartamsa_exam.order.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.spartamsa_exam.product.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.spartamsa_exam.product.main.iml" />
     </modules>
   </component>
