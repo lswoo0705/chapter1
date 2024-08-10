@@ -8,6 +8,7 @@ import com.spartamsa_exam.order.entity.Order;
 import com.spartamsa_exam.order.entity.OrderProduct;
 import com.spartamsa_exam.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -47,6 +48,7 @@ public class OrderService {
     }
 
     // 주문 단건 조회
+    @Cacheable(cacheNames = "orderCache", key = "args[0]")
     public OrderResponseDto getOrder(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(
                 () -> new IllegalArgumentException("해당 주문은 존재하지 않습니다.")
