@@ -1,8 +1,10 @@
 package com.spartamsa_exam.product.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class ProductResponseDto {
     private Long id;
     private String name;
