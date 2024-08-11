@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
+    // 서버 포트
+    @Value("${server.port}")
+    private String serverPort;
 
     /**
      * 사용자 ID를 받아 JWT 액세스 토큰을 생성하여 응답합니다.
@@ -22,8 +27,14 @@ public class AuthController {
      * @return JWT 액세스 토큰을 포함한 AuthResponse 객체를 반환합니다.
      */
     @GetMapping("/auth/signIn")
-    public ResponseEntity<?> createAuthenticationToken(@RequestParam String user_id){
-        return ResponseEntity.ok(new AuthResponse(authService.createAccessToken(user_id)));
+    public ResponseEntity<?> createAuthenticationToken(@RequestParam String user_id) {
+        String accessToken = authService.createAccessToken(user_id);
+        AuthResponse authResponse = new AuthResponse(accessToken);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Server-Port", serverPort);
+
+        return ResponseEntity.ok().headers(headers).body(authResponse);
     }
 
     /**
