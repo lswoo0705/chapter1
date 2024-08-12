@@ -1,6 +1,5 @@
 package com.spartamsa_exam.order.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spartamsa_exam.order.dto.OrderResponseDto;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +10,6 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
-import org.springframework.data.redis.serializer.RedisSerializer;
 
 import java.time.Duration;
 
@@ -19,15 +17,12 @@ import java.time.Duration;
 @EnableCaching
 public class CacheConfig {
     @Bean
-    // CacheManager로 진행해도 정상 동작
     public RedisCacheManager cacheManager(
             RedisConnectionFactory redisConnectionFactory
     ) {
         // Jackson2JsonRedisSerializer를 사용하여 JSON 직렬화 설정
         Jackson2JsonRedisSerializer<OrderResponseDto> jsonSerializer = new Jackson2JsonRedisSerializer<>(OrderResponseDto.class);
 
-        // 설정 구성을 먼저 진행한다.
-        // Redis를 이용해서 Spring Cache를 사용할 때
         // Redis 관련 설정을 모아두는 클래스
         RedisCacheConfiguration configuration = RedisCacheConfiguration
                 .defaultCacheConfig()

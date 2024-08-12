@@ -21,14 +21,14 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderProduct> orderProductIds = new ArrayList<>();
 
+    public Order(String name) {
+        this.name = name;
+    }
+
     public List<Long> getProductIds() {
         return orderProductIds.stream()
                 .map(OrderProduct::getProductId)
                 .collect(Collectors.toList());
-    }
-
-    public Order(String name) {
-        this.name = name;
     }
 
     public void addOrderProduct(OrderProduct orderProduct) {

@@ -26,7 +26,7 @@ public class CacheConfig {
         RedisCacheConfiguration configuration = RedisCacheConfiguration
                 .defaultCacheConfig()
                 .disableCachingNullValues()
-                .entryTtl(Duration.ofSeconds(60))  // TTL 설정 변경 (여기서는 60분으로 설정)
+                .entryTtl(Duration.ofSeconds(60))  // TTL 설정 변경 (여기서는 60초로 설정)
                 .computePrefixWith(CacheKeyPrefix.simple())
                 .serializeValuesWith(
                         RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer)

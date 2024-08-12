@@ -30,11 +30,9 @@ public class ProductService {
     public List<ProductResponseDto> getProducts() {
         List<Product> products = productRepository.findAll();
 
-        List<ProductResponseDto> productList = products.stream()
+        return products.stream()
                 .map(product -> new ProductResponseDto(product.getId(), product.getName(), product.getSupplyPrice()))
                 .toList();
-
-        return productList;
     }
 
     // productRepository에 상품이 존재하는지 확인
