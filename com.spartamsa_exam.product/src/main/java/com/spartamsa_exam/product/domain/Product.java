@@ -1,4 +1,4 @@
-package com.spartamsa_exam.product.entity;
+package com.spartamsa_exam.product.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

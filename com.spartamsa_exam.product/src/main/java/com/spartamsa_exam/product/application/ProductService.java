@@ -1,9 +1,9 @@
-package com.spartamsa_exam.product.service;
+package com.spartamsa_exam.product.application;
 
-import com.spartamsa_exam.product.dto.ProductRequestDto;
-import com.spartamsa_exam.product.dto.ProductResponseDto;
-import com.spartamsa_exam.product.entity.Product;
-import com.spartamsa_exam.product.repository.ProductRepository;
+import com.spartamsa_exam.product.application.dto.ProductRequestDto;
+import com.spartamsa_exam.product.application.dto.ProductResponseDto;
+import com.spartamsa_exam.product.domain.Product;
+import com.spartamsa_exam.product.domain.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

@@ -1,4 +1,4 @@
-package com.spartamsa_exam.auth.service;
+package com.spartamsa_exam.auth.application;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;

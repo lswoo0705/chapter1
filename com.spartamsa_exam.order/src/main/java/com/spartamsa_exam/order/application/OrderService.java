@@ -1,12 +1,12 @@
-package com.spartamsa_exam.order.service;
+package com.spartamsa_exam.order.application;
 
-import com.spartamsa_exam.order.client.ProductClient;
-import com.spartamsa_exam.order.dto.AddProductToOrderRequestDto;
-import com.spartamsa_exam.order.dto.OrderRequestDto;
-import com.spartamsa_exam.order.dto.OrderResponseDto;
-import com.spartamsa_exam.order.entity.Order;
-import com.spartamsa_exam.order.entity.OrderProduct;
-import com.spartamsa_exam.order.repository.OrderRepository;
+import com.spartamsa_exam.order.infrastructure.ProductClient;
+import com.spartamsa_exam.order.application.dto.AddProductToOrderRequestDto;
+import com.spartamsa_exam.order.application.dto.OrderRequestDto;
+import com.spartamsa_exam.order.application.dto.OrderResponseDto;
+import com.spartamsa_exam.order.domain.Order;
+import com.spartamsa_exam.order.domain.OrderProduct;
+import com.spartamsa_exam.order.domain.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

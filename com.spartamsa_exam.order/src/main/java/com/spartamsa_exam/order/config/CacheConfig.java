@@ -1,6 +1,6 @@
 package com.spartamsa_exam.order.config;
 
-import com.spartamsa_exam.order.dto.OrderResponseDto;
+import com.spartamsa_exam.order.application.dto.OrderResponseDto;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

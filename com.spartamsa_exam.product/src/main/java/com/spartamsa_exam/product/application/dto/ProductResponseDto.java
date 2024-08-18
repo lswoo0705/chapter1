@@ -1,4 +1,4 @@
-package com.spartamsa_exam.product.dto;
+package com.spartamsa_exam.product.application.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

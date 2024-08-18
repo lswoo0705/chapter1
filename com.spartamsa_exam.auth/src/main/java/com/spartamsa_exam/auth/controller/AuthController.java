@@ -1,6 +1,6 @@
 package com.spartamsa_exam.auth.controller;
 
-import com.spartamsa_exam.auth.service.AuthService;
+import com.spartamsa_exam.auth.application.AuthService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

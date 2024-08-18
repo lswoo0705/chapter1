@@ -1,4 +1,4 @@
-package com.spartamsa_exam.order.client;
+package com.spartamsa_exam.order.infrastructure;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

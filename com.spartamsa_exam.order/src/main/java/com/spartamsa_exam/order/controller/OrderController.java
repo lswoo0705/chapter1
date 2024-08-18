@@ -1,9 +1,9 @@
 package com.spartamsa_exam.order.controller;
 
-import com.spartamsa_exam.order.dto.AddProductToOrderRequestDto;
-import com.spartamsa_exam.order.dto.OrderRequestDto;
-import com.spartamsa_exam.order.dto.OrderResponseDto;
-import com.spartamsa_exam.order.service.OrderService;
+import com.spartamsa_exam.order.application.dto.AddProductToOrderRequestDto;
+import com.spartamsa_exam.order.application.dto.OrderRequestDto;
+import com.spartamsa_exam.order.application.dto.OrderResponseDto;
+import com.spartamsa_exam.order.application.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;

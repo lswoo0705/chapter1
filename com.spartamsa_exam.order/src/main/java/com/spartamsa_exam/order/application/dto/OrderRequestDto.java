@@ -1,4 +1,4 @@
-package com.spartamsa_exam.order.dto;
+package com.spartamsa_exam.order.application.dto;
 
 import lombok.Builder;
 import lombok.Getter;
